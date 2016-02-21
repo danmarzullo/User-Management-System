@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+	<head>
+  		<!-- CSS -->
+  		<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+		<link href="css/bootstrap.min.css" rel="stylesheet" />
+		<link href="css/main.css" rel="stylesheet" />
+
+	</head>
+	<body ng-app="UserManagementSystem">
+		<div class="header">
+			<div class="container">
+				<h1>User Management System</h1>
+			</div>
+		</div>
+
+		<div class="main" ng-controller="MainController">
+			<div class="container">
+
+				<!-- Users list -->
+				<p class="input-group" ng-repeat="user in users">
+					<table>
+						<!-- Column Titles -->
+						<tr >
+							<td><h2>Name</h2></td>
+							<td><h2>Phone Number</h2></td>
+							<td><h2>Address</h2></td>
+							<td><h2>Role</h2></td>
+						</tr>
+						<!-- Add New User Input Fields with Add User Button-->
+						<tr>
+							<td><input type="text" ng-model="name"></td>
+							<td><input type="text" ng-model="phone"></td>
+							<td><input type="text" ng-model="address"></td>
+							<td><input type="text" ng-model="role"></td>
+							<td><button ng-click="addUser()">Add User</button></td>
+						</tr>
+						<!-- User List with Update and Remove Buttons -->
+						<tr ng-repeat="user in users">
+							<td>{{ user.name }}</td>
+							<td><input type="text" ng-model="user.phone"></td>
+							<td><input type="text" ng-model="user.address"></td>
+							<td><input type="text" ng-model="user.role"></td>
+							<td><button class="btn btn-info" ng-click="updateUser($index)" aria-label="Remove">Update</button></td>
+							<td><button class="btn btn-danger" ng-click="removeUser($index)" aria-label="Remove">X</button></td>
+						</tr>
+					</table>
+				</p>
+
+			</div>
+		</div>
+
+		<div class="footer">
+			<div class="container">
+				<h2>By Dan Marzullo</h2>
+			</div>
+		</div>
+
+
+	
+	<!-- AngularJS -->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+	
+    <!-- Modules -->
+    <script src="js/app.js"></script>
+    
+    <!-- Controllers -->
+    <script src="js/controllers/MainController.js"></script>
+	</body>
+</html>
